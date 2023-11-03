@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+.page{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cover{
+    background-color: aliceblue;
+    width: 30em;
+    height:35em;
+    position: relative;
+    border-radius:1em;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
+}
+.login-btn{
+width:40%;
+height: 3em;
+background-color: rgb(51, 163, 171);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: o.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+  color:aliceblue;
+  font-size: large;
+  font-weight:700;
+  font-family: 'Courier New', Courier, monospace;
+}
+.login-btn:hover{
+    transform: scale(1.25);
+ 
+    
+}
+
+input{
+    border:none;
+    background-color: rgb(229,226,226);
+    height: 4em;
+    width:80%;
+    border-radius:0.25em;
+    text-align: center;
+     padding: 2em;
+     font-size: large;
+}
+input:focus{
+    outline-color:black;
+}
+.hide{
+    position: absolute;
+    transform: scale(0);
+}
+.login-popup{
+    position: absolute;
+    height: 30em;
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+     justify-content: center;
+     border-radius: 0.3em;
+     background-color: black;
+     color: white;
+     bottom: 0;
+     transition: 1.5s;
+     transform: scale(1);
+     
+     
+     
+}
+h3,p {
+    align-items: center;
+    justify-content: center;
+}
