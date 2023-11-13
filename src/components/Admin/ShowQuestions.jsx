@@ -51,6 +51,66 @@ const ShowQuestions = () => {
       }
     };
   return (
+       <div>
+    <AdminNavbar />
+    <div className="container">
+      <h2 className="mt-4 mb-3">Show Questions</h2>
+      {questions.length > 0 ? (
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Option1</th>
+              <th>Option2</th>
+              <th>Option3</th>
+              <th>Option4</th>
+              <th>Correct Solution</th>
+              <th>Technology</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {questions.map((question) => (
+              <tr key={question.id}>
+                <td>{question.questionText}</td>
+                <td>{question.option1}</td>
+                <td>{question.option2}</td>
+                <td>{question.option3}</td>
+                <td>{question.option4}</td>
+                <td>{question.correctOption}</td>
+                <td>{question.technology}</td>
+                <td>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDeleteQuestion(question.id)}
+                  >
+                    Delete
+                  </button>{" "}
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => handleEditQuestion(question)}
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No questions found</p>
+      )}
+      {showEditModal && (
+        <EditQuestionModal
+          question={editedQuestion}
+          onUpdateQuestion={handleUpdateQuestion}
+          onClose={() => setShowEditModal(false)}
+        />
+      )}
+      {error && <div className="text-danger mt-2">{error}</div>}
+    </div>
+  </div>
+
      )
 }
 
