@@ -32,6 +32,8 @@ const AdminLogin = () => {
         };
         try {
             await axios.post("http://localhost:8080/api/questions/addquestion", newQuestion);
+            const res= Response.data;
+            if(res.status===200){
             setQuestion("");
             setOption1("");
             setOption2("");
@@ -39,31 +41,58 @@ const AdminLogin = () => {
             setOption4("");
             setTechnology("");
             setCorrectSolution("");
+            }
         } catch (error) {
             setError("Failed to add question");
         }
     }
+    const inputStyle = {
+        padding: '10px',
+        fontSize: '16px',
+        border: '1px solid black',
+        borderRadius: '5px',
+        width:'600px',
+        height:'50px'        
+      };
+      const border={
+        padding: '10px',
+        fontSize: '16px',        
+        border: '1px solid black',
+        borderRadius: '5px',
+        width:'600px',
+        height:'50px'
+      };
+      const Container1 = {       
+        fontSize: '16px',
+        borderRadius: '5px',
+        width:'600px',
+        height:'50px',
+        
+      };
+      
 
     return (
         <div>
             <AdminNavbar username={username} />
-            <div className="container">
-                <h2 className="mt-4 mb-3">Admin Login</h2>
+            <div className="container" style={Container1}>
+                <h2 className="mt-4 mb-3"><b>Add Questions</b></h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group mb-3">
-                        <label>Question:</label>
+                        <label><b>Question:</b></label>
                         <input
                             type="text"
+                            style={border}
                             className="form-control"
                             value={question}
                             placeholder="Enter Question"
                             onChange={(e) => setQuestion(e.target.value)}
                         />
                     </div>
-                    <div className="form-group">
-                        <label>Options:</label>
+                    <div className="form-group" >
+                        <label><b>Options:</b></label>
                         <input
                             type="text"
+                            style={inputStyle}
                             className="form-control mb-3"
                             placeholder="Option 1"
                             value={option1}
@@ -71,6 +100,7 @@ const AdminLogin = () => {
                         />
                         <input
                             type="text"
+                            style={inputStyle}
                             className="form-control mb-3"
                             placeholder="Option 2"
                             value={option2}
@@ -78,6 +108,7 @@ const AdminLogin = () => {
                         />
                         <input
                             type="text"
+                            style={inputStyle}
                             className="form-control mb-3"
                             placeholder="Option 3"
                             value={option3}
@@ -85,15 +116,17 @@ const AdminLogin = () => {
                         />
                         <input
                             type="text"
+                            style={inputStyle}
                             className="form-control mb-3"
                             placeholder="Option 4"
                             value={option4}
                             onChange={(e) => setOption4(e.target.value)}
                         />
                     </div>
-                    <div className="form-group">
-                        <label>Correct Solution:</label>
+                    <div className="form-group my-1">
+                        <label><b>Correct Solution:</b></label>
                         <select
+                        style={inputStyle}
                             className="form-control"
                             value={correctSolution}
                             onChange={(e) => setCorrectSolution(e.target.value)}
@@ -105,20 +138,21 @@ const AdminLogin = () => {
                             <option value="4">Option 4</option>
                         </select>
                     </div>
-                    <div className="form-group">
-                        <label>Technology:</label>
+                    <div className="form-group my-2">
+                        <label><b>Technology:</b></label>
                         <input
+                        style={inputStyle}
                             type="text"
                             className="form-control"
                             value={technology}
                             onChange={(e) => setTechnology(e.target.value)}
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-primary my-3">
                         Add Question
                     </button>
                     {error && <div className="text-danger mt-2">{error}</div>}
-                </form>
+               </form>
             </div>
         </div>
     )

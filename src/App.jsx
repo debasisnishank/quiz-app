@@ -27,6 +27,7 @@ function App() {
         <Route path="/admin/generate-quiz" element={<QuizGenerator />} />
         <Route path="/admin/showuserrecord" element={<ShowUserResponse />} />
         <Route path="/admin/adduser" element={<AddUser />} />
+        <Route path="/admin/update-user/:id" element={<AddUser />} />
         <Route path="/admin/viewusers" element={<ViewUserList />} />
 
       </Routes>

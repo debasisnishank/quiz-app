@@ -13,6 +13,24 @@ const QuizGenerator = () => {
         fetchQuestions();
     }, []);
 
+    const inputStyle = {
+        padding: '10px',
+        fontSize: '16px',        
+        border: '1px solid black',
+        borderRadius: '5px',
+        width:'400px',
+        height:'50px'
+      };
+      const Container1 = {
+        padding: '10px',
+        fontSize: '16px',
+        borderRadius: '5px',
+        width:'400px',
+        height:'50px',
+        
+      };
+    
+
     const fetchQuestions = async () => {
         try {
             const response = await axios.get(
@@ -71,23 +89,26 @@ const QuizGenerator = () => {
     return (
         <div>
             <AdminNavbar />
-            <div className="container">
+            <div className="container" style={Container1} >
                 <h2 className="mt-3">Quiz Generator</h2>
-                <div className="form-group">
+                <div className="form-group col-auto">
                     <label htmlFor="quizName">Quiz Name:</label>
                     <input
                         type="text"
-                        className="form-control"
+                        className="form-control "
+                        style={inputStyle}
                         id="quizName"
                         value={quizName}
+                        
                         onChange={(e) => setQuizName(e.target.value)}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group my-4">
                     <label htmlFor="selectedTechnology">Select Technology:</label>
                     <select
-                        className="form-control"
+                        className="form-control "
                         id="selectedTechnology"
+                        style={inputStyle}
                         value={selectedTechnology}
                         onChange={handleTechnologyChange}
                     >

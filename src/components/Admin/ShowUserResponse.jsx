@@ -28,8 +28,8 @@ const ShowUserResponse = () => {
             <div className="container">
                 <h2 className="mt-4 mb-3">User Responses</h2>
                 {responses.length > 0 ? (
-                    <table className="table">
-                        <thead>
+                    <table className="table table-hover table-striped">
+                        <thead className='table-primary'>
                             <tr>
                                 <th>User</th>
                                 <th>Question</th>

@@ -14,9 +14,13 @@ const QuizPage = () => {
 
   const location = useLocation();
   const username = location.state?.username;
+  const uid = location.state?.userid;
+  console.log(uid)
+
 
   useEffect(() => {
     fetchQuizList();
+
   }, []);
 
   useEffect(() => {
@@ -92,7 +96,7 @@ const QuizPage = () => {
         const { questionId, optionNumber } = userAnswer;
 
         const userAnswers = {
-          userId: 1, // Replace with the actual user ID
+          userId: uid, // Replace with the actual user ID
           questionId: questionId,
           selectedOption: optionNumber,
         };
@@ -176,9 +180,10 @@ const QuizPage = () => {
                   <h4>{question.questionText}</h4>
                   <ul className="list-group">
                     <li className="list-group-item">
-                      <label className="form-check-label">
+                      <label className="custom-control-input">
                         <input
                           type="radio"
+                          className="form-check-input"
                           name={`question-${question.id}`}
                           value={1}
                           checked={
@@ -188,8 +193,7 @@ const QuizPage = () => {
                                 selectedOption.optionNumber === 1
                             ) !== undefined
                           }
-                          onChange={() => handleOptionChange(question.id, 1)}
-                          className="form-check-input"
+                          onChange={() => handleOptionChange(question.id, 1)}                        
                         />
                         {question.option1}
                       </label>
@@ -198,6 +202,7 @@ const QuizPage = () => {
                       <label className="form-check-label">
                         <input
                           type="radio"
+                          
                           name={`question-${question.id}`}
                           value={2}
                           checked={
